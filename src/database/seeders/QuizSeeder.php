@@ -40,5 +40,9 @@ class QuizSeeder extends Seeder
         Choice::create(['question_id' => $aq1->id, 'text' => '東京', 'is_correct' => true]);
         Choice::create(['question_id' => $aq1->id, 'text' => 'ハワイ', 'is_correct' => false]);
         Choice::create(['question_id' => $aq1->id, 'text' => 'ロンドン', 'is_correct' => false]);
+
+        Quiz::factory(100)->create();
     }
+
+    
 }

@@ -47,4 +47,12 @@ Route::get('/quizzes', [QuizController::class, 'index'])->middleware('auth')->na
 
 Route::get('/quizzes/{id}', [QuizController::class, 'show'])->middleware('auth')->name('quizzes.show');
 
+Route::get('/quizzes/{id}/edit', [QuizController::class, 'edit'])->middleware('auth')->name('quizzes.edit');
+
+Route::patch('/quizzes/{id}', [QuizController::class, 'update'])->middleware('auth')->name('quizzes.update');
+
 Route::get('/posts', [PostController::class, 'index'])->middleware('auth')->name('posts.index');
+
+Route::delete('/quizzes/{id}', [QuizController::class, 'destroy'])->middleware('auth')->name('quizzes.destroy');
+
+Route::get('/admin', function () {return view('admin.dashboard');})->middleware(['auth', 'admin'])->name('admin.dashboard');
