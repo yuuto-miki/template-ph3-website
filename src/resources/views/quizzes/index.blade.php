@@ -25,19 +25,7 @@
                         <a href="{{ route('quizzes.show', $quiz->id) }}" class="inline-block px-4 py-2 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700 transition">
                             クイズに挑戦する
                         </a>
-                        
-                        <a href="{{ route('quizzes.edit', $quiz->id) }}" class="inline-block px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition">
-                            編集
-                        </a>
-                        <form action="{{ route('quizzes.destroy', $quiz->id) }}" method="POST" 
-                            onsubmit="return confirm('「{{ $quiz->name }}」を本当に削除してもよろしいですか？');">
-                            @csrf
-                            @method('DELETE') <!-- DELETEメソッドを指定 -->
-                            <button type="submit" class="inline-block px-4 py-2 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 transition cursor-pointer">
-                                削除
-                            </button>
-                        </form>
-                    </div>
+                </div>
                 </div>
             @endforeach
 

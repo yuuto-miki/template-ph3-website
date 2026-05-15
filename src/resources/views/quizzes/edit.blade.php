@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="max-w-7xl mx-auto px-6 py-8">
-        <form method="POST" action="{{ route('quizzes.update', $quiz->id) }}">
+        <form action="{{ route('admin.quizzes.update', $quiz->id) }}" method="POST">
             @csrf
             @method('PATCH')
             

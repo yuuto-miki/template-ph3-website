@@ -29,18 +29,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        // ▼ ▼ ▼ 今回追加したログイン後の振り分け処理 ▼ ▼ ▼
-        
-        // もしログインしたユーザーが「管理者（is_admin が 1）」だったら
-        if (Auth::user()->is_admin) {
-            // 管理者専用ダッシュボードへリダイレクト
-            return redirect()->route('admin.dashboard'); 
+        if ($request->user()->is_admin) {
+            return redirect()->intended(route('admin.dashboard'));
         }
 
-        // 一般ユーザー（is_admin が 0）だったら、通常のダッシュボードへ
         return redirect()->intended(RouteServiceProvider::HOME);
-        
-        // ▲ ▲ ▲ ここまで ▲ ▲ ▲
     }
 
     /**
